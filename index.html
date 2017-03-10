@@ -68,25 +68,65 @@ $(document).ready(function(){
                 <div>
          <h4>Popularity of each candidate</h4>
                 <label>Candidate :</label>
-                <select id="district">
-                    <option value="0">John Tsang</option>
-                    <option value="1">Carrie Lam</option>
-                    <option value="2">Woo Kwok-hing</option>
+                <select id="Candidate">
+                <option value="0">Candidate</option>
+                    <option value="1">John Tsang</option>
+                    <option value="2">Carrie Lam</option>
+                    <option value="3">Woo Kwok-hing</option>
             
             　　</select>
             </div>
          <br>
 
             <div>
-<button type="button" class="btn btn-primary">Primary</button>           
+<button type="button" class="btn btn-primary">Select</button>           
          </div>
 
-    <p class="0">52.8%</p>
+    <p class="0"></p>
+<p class="1" style="display: none;">31.3%</p>
     <p class="1" style="display: none;">31.3%</p>
     <p class="2" style="display: none;">15.9%</p>
 
+          <script>
 
-    <script>
+                $(function() {
+                    $('#submit').click(function() {
+                        $("select").change(function() {
+                            $(this).find("option:selected").each(function() {
+                        var optionValue = $(this).attr("value");
+                        if (optionValue) {
+                            $(".1").not("." + optionValue).hide();
+                            $("." + optionValue).show();
+                        } else {
+                            $(".1").hide();
+                        }
+                    });
+                }).change();
+
+                $("select").change(function() {
+                    $(this).find("option:selected").each(function() {
+                        var optionValue = $(this).attr("value");
+                        if (optionValue) {
+                            $(".2n").not("." + optionValue).hide();
+                            $("." + optionValue).show();
+                        } else {
+                            $(".2").hide();
+                        }
+                    });
+                }).change();
+
+                $("select").change(function() {
+                    $(this).find("option:selected").each(function() {
+                        var optionValue = $(this).attr("value");
+                        if (optionValue) {
+                            $(".3").not("." + optionValue).hide();
+                            $("." + optionValue).show();
+                        } else {
+                            $(".3").hide();
+                        }
+                    });
+                }).change();
+
             
 </script>
 </body>
